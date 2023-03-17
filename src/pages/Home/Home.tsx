@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { Photo } from "../../types/image";
+import PhotoCard from "../../components/ImageCard/PhotoCard";
 import { fetchData } from "../../api/images";
 import styles from "./Home.module.scss";
 
@@ -43,10 +44,10 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Photo Grid</h1>
       <div className={styles.grid} ref={containerRef}>
         {photos.map((photo) => (
-          <img key={photo.id} src={photo.src.medium} alt={photo.photographer} />
+          //   <img key={photo.id} src={photo.src.medium} alt={photo.photographer} />
+          <PhotoCard {...photo} key={photo.id} />
         ))}
       </div>
     </div>
