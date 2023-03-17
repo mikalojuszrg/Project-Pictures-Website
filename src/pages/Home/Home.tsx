@@ -5,12 +5,22 @@ import { fetchData } from "../../api/images";
 
 const Home = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
-  const [pageNumber, setPageNumber] = useState<number>(1);
+  const [pageNumber, setPageNumber] = useState(1);
+
+  const handlePageNumber = () => {
+    return setPageNumber((prevPageNumber) => prevPageNumber + 1);
+  };
+
+  console.log(photos);
 
   useEffect(() => {
     const loadPhotos = async () => {
       const data = await fetchData(pageNumber);
-      setPhotos((prevPhotos) => [...prevPhotos, ...data]);
+      if (pageNumber === 1) {
+        setPhotos(data);
+      } else {
+        setPhotos((prevPhotos) => [...prevPhotos, ...data]);
+      }
     };
     loadPhotos();
   }, [pageNumber]);
@@ -23,11 +33,7 @@ const Home = () => {
           <img key={photo.id} src={photo.src.medium} alt={photo.photographer} />
         ))}
       </div>
-      <button
-        onClick={() => setPageNumber((prevPageNumber) => prevPageNumber + 1)}
-      >
-        Load More
-      </button>
+      <button onClick={handlePageNumber}>Load More</button>
     </div>
   );
 };
