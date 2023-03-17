@@ -1,9 +1,12 @@
+import { FavouriteProvider } from "./contexts/FavouriteContext";
 import Routes from "./routes/Routes";
 
 const App = () => {
   return (
     <>
-      <Routes />
+      <FavouriteProvider>
+        <Routes />
+      </FavouriteProvider>
     </>
   );
 };

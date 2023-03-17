@@ -43,14 +43,15 @@ const Home = () => {
   }, [containerRef.current]);
 
   return (
-    <div>
+    <main>
+      <h1>Photos</h1>
       <div className={styles.grid} ref={containerRef}>
         {photos.map((photo) => (
           //   <img key={photo.id} src={photo.src.medium} alt={photo.photographer} />
           <PhotoCard {...photo} key={photo.id} />
         ))}
       </div>
-    </div>
+    </main>
   );
 };
 
