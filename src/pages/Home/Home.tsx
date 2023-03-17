@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Photo } from "../../types/image";
 import { fetchData } from "../../api/images";
 
-const PhotoGrid = () => {
+const Home = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(1);
 
@@ -31,3 +31,5 @@ const PhotoGrid = () => {
     </div>
   );
 };
+
+export default Home;
