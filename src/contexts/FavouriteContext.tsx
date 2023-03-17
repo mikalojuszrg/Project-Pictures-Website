@@ -1,28 +1,28 @@
-import {
-  Dispatch,
-  PropsWithChildren,
-  SetStateAction,
-  createContext,
-} from "react";
+import { PropsWithChildren, createContext } from "react";
 
+import { Photo } from "../types/image";
 import { useLocalStorage } from "../hooks/localStorage";
 
 const FavouriteContext = createContext<{
-  isFavourite: boolean;
-  setIsFavourite: Dispatch<SetStateAction<boolean>>;
+  favouritePhotos: Photo[];
+  addFavouritePhoto: (photo: Photo) => void;
 }>({
-  isFavourite: false,
-  setIsFavourite: () => {},
+  favouritePhotos: [],
+  addFavouritePhoto: () => {},
 });
 
 const FavouriteProvider = ({ children }: PropsWithChildren) => {
-  const [isFavourite, setIsFavourite] = useLocalStorage<boolean>(
-    "isFavorite",
-    false
+  const [favouritePhotos, setFavouritePhotos] = useLocalStorage<Photo[]>(
+    "favouritePhotos",
+    []
   );
 
+  const addFavouritePhoto = (photo: Photo) => {
+    setFavouritePhotos((prevPhotos) => [...prevPhotos, photo]);
+  };
+
   return (
-    <FavouriteContext.Provider value={{ isFavourite, setIsFavourite }}>
+    <FavouriteContext.Provider value={{ favouritePhotos, addFavouritePhoto }}>
       {children}
     </FavouriteContext.Provider>
   );
