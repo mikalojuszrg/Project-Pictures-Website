@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Photo } from "../../types/photo";
 import PhotoCard from "../../components/ImageCard/PhotoCard";
 import { fetchData } from "../../api/images";
+import { filterArray } from "../../utils/filter";
 import styles from "./Home.module.scss";
 
 const Home = () => {
@@ -25,6 +26,8 @@ const Home = () => {
     };
     loadPhotos();
   }, [pageNumber]);
+
+  const filteredPhotos = filterArray(photos);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -53,6 +56,7 @@ const Home = () => {
 
   return (
     <main className={styles.container}>
+      <h1>Photos</h1>
       <section className={styles.container__images} ref={containerRef}>
         {filteredPhotos.map((photo) => (
           <PhotoCard {...photo} key={photo.id} />
@@ -64,10 +68,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// // Filter out duplicate images
-// // const filteredPhotos = photos.filter(
-// //   (photo, index, self) => index === self.findIndex((p) => p.id === photo.id)
-// // );
-
-// const filteredPhotos = photos.filter((photo) => photo.id);

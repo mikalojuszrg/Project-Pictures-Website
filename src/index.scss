@@ -1,0 +1,23 @@
+@use "./sass/utils/colors.scss" as color;
+
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: color.$base-color-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: color.$base-color-primary;
+}

@@ -1,0 +1,6 @@
+@use "../../sass/utils/colors.scss" as color;
+
+.container {
+  height: 100vh;
+  background-color: color.$base-color-primary;
+}
