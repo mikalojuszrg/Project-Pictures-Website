@@ -8,13 +8,15 @@ import styles from "./Home.module.scss";
 const Home = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [loading, setLoading] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  console.log(photos);
+  const [containerHeight, setContainerHeight] = useState(0);
 
   useEffect(() => {
     const loadPhotos = async () => {
+      setLoading(true);
       const data = await fetchData(pageNumber);
+      setLoading(false);
       if (pageNumber === 1) {
         setPhotos(data);
       } else {
@@ -26,10 +28,15 @@ const Home = () => {
 
   useEffect(() => {
     const container = containerRef.current;
+    if (container) {
+      setContainerHeight(container.clientHeight);
+    }
     const handleScroll = () => {
       if (
         container &&
-        container.scrollTop + container.clientHeight >= container.scrollHeight
+        container.scrollTop + container.clientHeight >=
+          container.scrollHeight - containerHeight &&
+        !loading
       ) {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
       }
@@ -42,16 +49,21 @@ const Home = () => {
         container.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [containerRef.current]);
+  }, [loading, containerRef, containerHeight]);
+
+  // Filter out duplicate images
+  const filteredPhotos = photos.filter(
+    (photo, index, self) => index === self.findIndex((p) => p.id === photo.id)
+  );
 
   return (
-    <main>
-      <h1>Photos</h1>
-      <div className={styles.grid} ref={containerRef}>
-        {photos.map((photo) => (
+    <main className={styles.container}>
+      <section className={styles.container__images} ref={containerRef}>
+        {filteredPhotos.map((photo) => (
           <PhotoCard {...photo} key={photo.id} />
         ))}
-      </div>
+        {loading && <div>Loading...</div>}
+      </section>
     </main>
   );
 };

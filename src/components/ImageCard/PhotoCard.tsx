@@ -24,14 +24,14 @@ const PhotoCard = (photo: Photo) => {
   return (
     <div className={styles.container}>
       <img
-        src={photo.src.medium}
+        src={photo.src.landscape}
         alt={photo.photographer}
         className={styles.container__image}
       />
-      <h2>{photo.photographer}</h2>
-      <Button onClick={handleFavourite}>
+      {/* <h2 className={styles.container__text}>{photo.photographer}</h2>
+      <Button onClick={handleFavourite} className={styles.container__button}>
         {isFavourite ? "Unfavourite" : "Favourite"}
-      </Button>
+      </Button> */}
     </div>
   );
 };

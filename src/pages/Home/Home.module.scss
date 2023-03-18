@@ -1,4 +1,19 @@
-.grid {
-  height: 90vh; /* or any fixed height you want */
-  overflow: auto;
+@import "../../sass/mixins/mediaQueries.scss";
+
+.container {
+  height: 100vh;
+
+  &__images {
+    display: grid;
+    overflow: auto;
+    height: 100%;
+
+    @include medium {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include large {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }
