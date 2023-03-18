@@ -1,11 +1,25 @@
+import { useContext, useState } from "react";
+
 import Button from "../Button/Button";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
 import { Photo } from "../../types/image";
 import styles from "./PhotoCard.module.scss";
-import { useContext } from "react";
 
 const PhotoCard = (photo: Photo) => {
-  const { addFavouritePhoto } = useContext(FavouriteContext);
+  const { addFavouritePhoto, removeFavouritePhoto, favouritePhotos } =
+    useContext(FavouriteContext);
+  const [isFavourite, setIsFavourite] = useState(
+    favouritePhotos.some((p) => p.id === photo.id)
+  );
+
+  const handleFavourite = () => {
+    if (isFavourite) {
+      removeFavouritePhoto(photo);
+    } else {
+      addFavouritePhoto(photo);
+    }
+    setIsFavourite((prevValue) => !prevValue);
+  };
 
   return (
     <div className={styles.container}>
@@ -15,7 +29,9 @@ const PhotoCard = (photo: Photo) => {
         className={styles.container__image}
       />
       <h2>{photo.photographer}</h2>
-      <Button onClick={() => addFavouritePhoto(photo)}>Favourite</Button>
+      <Button onClick={handleFavourite}>
+        {isFavourite ? "Unfavourite" : "Favourite"}
+      </Button>
     </div>
   );
 };
