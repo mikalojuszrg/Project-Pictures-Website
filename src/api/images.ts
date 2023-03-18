@@ -1,4 +1,4 @@
-import { Photo } from "../types/image";
+import { Photo } from "../types/photo";
 
 const KEY = "IIMiNJD9KiSjJZoHdhPvA92i5LfbmCCKZQMVHsaQUwjdGJFi6aCKbyIx";
 const URL = "https://api.pexels.com/v1/";

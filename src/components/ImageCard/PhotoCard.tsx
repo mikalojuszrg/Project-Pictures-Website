@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 
 import Button from "../Button/Button";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
-import { Photo } from "../../types/image";
+import { Photo } from "../../types/photo";
 import styles from "./PhotoCard.module.scss";
 
 const PhotoCard = (photo: Photo) => {

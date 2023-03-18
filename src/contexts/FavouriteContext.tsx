@@ -4,7 +4,7 @@ import {
   useRemoveLocalStorage,
 } from "../hooks/localStorage";
 
-import { Photo } from "../types/image";
+import { Photo } from "../types/photo";
 
 type FavouriteContextType = {
   favouritePhotos: Photo[];

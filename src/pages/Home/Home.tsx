@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Photo } from "../../types/image";
+import { Photo } from "../../types/photo";
 import PhotoCard from "../../components/ImageCard/PhotoCard";
 import { fetchData } from "../../api/images";
 import styles from "./Home.module.scss";
@@ -9,8 +9,8 @@ const Home = () => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [containerHeight, setContainerHeight] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const loadPhotos = async () => {
@@ -51,11 +51,6 @@ const Home = () => {
     };
   }, [loading, containerRef, containerHeight]);
 
-  // Filter out duplicate images
-  const filteredPhotos = photos.filter(
-    (photo, index, self) => index === self.findIndex((p) => p.id === photo.id)
-  );
-
   return (
     <main className={styles.container}>
       <section className={styles.container__images} ref={containerRef}>
@@ -69,3 +64,10 @@ const Home = () => {
 };
 
 export default Home;
+
+// // Filter out duplicate images
+// // const filteredPhotos = photos.filter(
+// //   (photo, index, self) => index === self.findIndex((p) => p.id === photo.id)
+// // );
+
+// const filteredPhotos = photos.filter((photo) => photo.id);
