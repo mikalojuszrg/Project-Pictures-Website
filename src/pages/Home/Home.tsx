@@ -10,6 +10,8 @@ const Home = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  console.log(photos);
+
   useEffect(() => {
     const loadPhotos = async () => {
       const data = await fetchData(pageNumber);
@@ -47,7 +49,6 @@ const Home = () => {
       <h1>Photos</h1>
       <div className={styles.grid} ref={containerRef}>
         {photos.map((photo) => (
-          //   <img key={photo.id} src={photo.src.medium} alt={photo.photographer} />
           <PhotoCard {...photo} key={photo.id} />
         ))}
       </div>
