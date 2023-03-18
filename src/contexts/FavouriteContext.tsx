@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext } from "react";
 
 import { Photo } from "../types/image";
-import { useLocalStorage } from "../hooks/localStorage";
+import { useAddLocalStorage } from "../hooks/localStorage";
 
 const FavouriteContext = createContext<{
   favouritePhotos: Photo[];
@@ -12,7 +12,7 @@ const FavouriteContext = createContext<{
 });
 
 const FavouriteProvider = ({ children }: PropsWithChildren) => {
-  const [favouritePhotos, setFavouritePhotos] = useLocalStorage<Photo[]>(
+  const [favouritePhotos, setFavouritePhotos] = useAddLocalStorage<Photo[]>(
     "favouritePhotos",
     []
   );
