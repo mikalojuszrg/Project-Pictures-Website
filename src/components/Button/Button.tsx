@@ -8,10 +8,13 @@ type Props = {
 };
 
 const Button = ({ children, onClick, variant }: Props) => {
-  const className = variant === "primary" ? styles.primary : styles.secondary;
+  const modifierClass = `button--${variant}`;
 
   return (
-    <button onClick={onClick} className={`${styles.button} ${className}`}>
+    <button
+      onClick={onClick}
+      className={`${styles.button} ${styles[modifierClass]}`}
+    >
       {children}
     </button>
   );

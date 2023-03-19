@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+import Button from "../../components/Button/Button";
 import { Photo } from "../../types/photo";
 import PhotoCard from "../../components/ImageCard/PhotoCard";
 import { fetchData } from "../../api/images";

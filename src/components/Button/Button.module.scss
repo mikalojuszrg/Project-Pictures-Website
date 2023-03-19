@@ -1,0 +1,22 @@
+@use "../../sass/utils/colors.scss" as color;
+
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+
+  &--primary {
+    background-color: transparent;
+    color: color.$base-color-secondary;
+    border: 1px solid color.$base-color-secondary;
+    opacity: 1;
+
+    &:hover {
+      background-color: rgba(color.$base-color-primary, 0.5);
+    }
+  }
+
+  &--secondary {
+    background-color: green;
+  }
+}

@@ -32,7 +32,7 @@ const PhotoCard = (photo: Photo) => {
       {/* Pexels don't provide pic titles, so added a placeholder below */}
       <h2 className={styles.container__title}>Title</h2>
       <p className={styles.container__description}>{photo.photographer}</p>
-      <Button onClick={handleFavourite}>
+      <Button variant="primary" onClick={handleFavourite}>
         {isFavourite ? "Unfavourite" : "Favourite"}
       </Button>
     </div>
