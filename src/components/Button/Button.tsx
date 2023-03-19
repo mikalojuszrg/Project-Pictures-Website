@@ -14,6 +14,7 @@ const Button = ({ children, onClick, variant }: Props) => {
     <button
       onClick={onClick}
       className={`${styles.button} ${styles[modifierClass]}`}
+      data-testid="button"
     >
       {children}
     </button>
