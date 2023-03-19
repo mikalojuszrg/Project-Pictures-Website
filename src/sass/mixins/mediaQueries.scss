@@ -1,5 +1,11 @@
+@mixin xsmall {
+  @media (max-width: 300px) {
+    @content;
+  }
+}
+
 @mixin small {
-  @media (max-width: 400px) {
+  @media (min-width: 301px) and (max-width: 400px) {
     @content;
   }
 }

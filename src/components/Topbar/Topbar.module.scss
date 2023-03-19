@@ -1,4 +1,5 @@
 @use "../../sass/utils/colors.scss" as color;
+@import "../../sass/mixins/mediaQueries.scss";
 
 .container {
   background-color: color.$base-color-primary;
@@ -6,6 +7,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0rem;
+
+  @include xsmall {
+    flex-direction: column;
+  }
 
   Button {
     margin-right: 0.5rem;

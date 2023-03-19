@@ -1,17 +1,19 @@
+import { ReactNode } from "react";
 import styles from "./Button.module.scss";
 
-type ButtonProps = {
-  variant: "primary" | "secondary";
+type Props = {
+  children: ReactNode;
   onClick: () => void;
-  children: React.ReactNode;
+  variant: "primary" | "secondary";
 };
 
-const Button = ({ variant, onClick, children }: ButtonProps) => {
+const Button = ({ children, onClick, variant }: Props) => {
+  const modifierClass = `button--${variant}`;
+
   return (
     <button
-      className={styles.button + " " + styles["button--" + variant]}
       onClick={onClick}
-      data-testid="button"
+      className={`${styles.button} ${styles[modifierClass]}`}
     >
       {children}
     </button>
