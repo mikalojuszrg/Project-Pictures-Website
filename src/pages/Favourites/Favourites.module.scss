@@ -1,0 +1,24 @@
+@import "../../sass/mixins/mediaQueries.scss";
+
+.container {
+  height: 87vh;
+
+  &__images {
+    display: grid;
+    gap: 2rem;
+    overflow: auto;
+    height: 100%;
+
+    @include medium {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include large {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include xlarge {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
