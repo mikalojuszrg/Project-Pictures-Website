@@ -4,50 +4,48 @@ import Button from "../components/Button/Button";
 
 describe("Button", () => {
   test("renders with the correct text content", async () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Button onClick={() => {}} variant="primary">
         Primary
       </Button>
     );
 
-    const button = await waitFor(() => getByText("Primary"));
+    const button = await waitFor(() => getByTestId("button"));
 
-    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent("Primary");
   });
 
   test("renders with the correct primary variant class", async () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Button onClick={() => {}} variant="primary">
         Primary
       </Button>
     );
 
-    const button = await waitFor(() => getByText("Primary"));
-
-    expect(button).toHaveClass("button--primary");
+    const button = await waitFor(() => getByTestId("button"));
+    expect(button).toHaveClass("button button--primary");
   });
 
   test("renders with the correct secondary variant class", async () => {
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Button onClick={() => {}} variant="secondary">
         Secondary
       </Button>
     );
 
-    const button = await waitFor(() => getByText("Secondary"));
-
-    expect(button).toHaveClass("button--secondary");
+    const button = await waitFor(() => getByTestId("button"));
+    expect(button).toHaveClass("button button--secondary");
   });
 
   test("calls onClick when clicked", async () => {
     const onClickMock = jest.fn();
-    const { getByText } = render(
+    const { getByTestId } = render(
       <Button onClick={onClickMock} variant="primary">
         Primary
       </Button>
     );
 
-    const button = await waitFor(() => getByText("Primary"));
+    const button = await waitFor(() => getByTestId("button"));
 
     fireEvent.click(button);
 
