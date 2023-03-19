@@ -4,8 +4,10 @@ import Button from "../Button/Button";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
 import { Photo } from "../../types/photo";
 import styles from "./PhotoCard.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const PhotoCard = (photo: Photo) => {
+  const navigate = useNavigate();
   const { addFavouritePhoto, removeFavouritePhoto, favouritePhotos } =
     useContext(FavouriteContext);
   const [isFavourite, setIsFavourite] = useState(
@@ -32,6 +34,9 @@ const PhotoCard = (photo: Photo) => {
         alt={photo.photographer}
         className={styles.container__image}
         loading="lazy"
+        onClick={() => {
+          window.location.href = photo.url;
+        }}
       />
       {/* Pexels don't provide pic titles, so added a placeholder below */}
       <h2 className={styles.container__title}>Title</h2>

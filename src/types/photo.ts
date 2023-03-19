@@ -1,6 +1,7 @@
 export type Photo = {
   id: number;
   photographer: string;
+  url: string;
   src: {
     original: string;
     large2x: string;
