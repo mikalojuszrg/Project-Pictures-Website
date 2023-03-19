@@ -24,7 +24,7 @@ const PhotoCard = (photo: Photo) => {
   return (
     <div className={styles.container}>
       <img
-        src={photo.src.medium}
+        src={photo.src.original}
         alt={photo.photographer}
         className={styles.container__image}
         loading="lazy"
