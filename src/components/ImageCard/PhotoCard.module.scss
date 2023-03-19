@@ -1,5 +1,3 @@
-// @import "../../sass/mixins/mediaQueries.scss";
-
 .container {
   height: 40vh;
   width: 100%;
@@ -12,27 +10,50 @@
     object-fit: cover;
   }
 
-  &__text {
+  &__title {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 0.5rem);
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
+    color: red;
+    font-size: 100%;
+    width: 30%;
+    border-bottom: 1px solid red;
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
   }
 
-  &__button {
+  &__description {
+    position: absolute;
+    top: calc(50% + 0.5rem);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    color: yellow;
+    font-size: 80%;
+    font-style: italic;
+    width: 100%;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  Button {
     position: absolute;
     bottom: 10%;
     left: 0;
     right: 0;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
   }
 
-  &:hover &__text,
-  &:hover &__button {
+  &:hover &__description,
+  &:hover Button,
+  &:hover &__title {
     opacity: 1;
   }
 }

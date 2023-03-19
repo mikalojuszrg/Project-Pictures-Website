@@ -24,13 +24,15 @@ const PhotoCard = (photo: Photo) => {
   return (
     <div className={styles.container}>
       <img
-        src={photo.src.original}
+        src={photo.src.medium}
         alt={photo.photographer}
         className={styles.container__image}
         loading="lazy"
       />
-      <h2 className={styles.container__text}>{photo.photographer}</h2>
-      <Button onClick={handleFavourite} className={styles.container__button}>
+      {/* Pexels don't provide pic titles, so added a placeholder below */}
+      <h2 className={styles.container__title}>Title</h2>
+      <p className={styles.container__description}>{photo.photographer}</p>
+      <Button onClick={handleFavourite}>
         {isFavourite ? "Unfavourite" : "Favourite"}
       </Button>
     </div>
