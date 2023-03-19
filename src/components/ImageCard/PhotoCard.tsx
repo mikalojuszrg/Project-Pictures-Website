@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import Button from "../Button/Button";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
@@ -11,6 +11,10 @@ const PhotoCard = (photo: Photo) => {
   const [isFavourite, setIsFavourite] = useState(
     favouritePhotos.some((p) => p.id === photo.id)
   );
+
+  useEffect(() => {
+    setIsFavourite(favouritePhotos.some((p) => p.id === photo.id));
+  }, [favouritePhotos, photo.id]);
 
   const handleFavourite = () => {
     if (isFavourite) {

@@ -1,10 +1,7 @@
 import { PropsWithChildren, createContext } from "react";
-import {
-  useAddLocalStorage,
-  useRemoveLocalStorage,
-} from "../hooks/localStorage";
 
 import { Photo } from "../types/photo";
+import { useLocalStorage } from "../hooks/localStorage";
 
 type FavouriteContextType = {
   favouritePhotos: Photo[];
@@ -19,13 +16,19 @@ const FavouriteContext = createContext<FavouriteContextType>({
 });
 
 const FavouriteProvider = ({ children }: PropsWithChildren) => {
-  const [favouritePhotos, setFavouritePhotos] = useAddLocalStorage<Photo[]>(
+  const [favouritePhotos, setFavouritePhotos] = useLocalStorage<Photo[]>(
     "favouritePhotos",
     []
   );
 
   const addFavouritePhoto = (photo: Photo) => {
-    setFavouritePhotos((prevPhotos) => [...prevPhotos, photo]);
+    setFavouritePhotos((prevPhotos) => {
+      if (prevPhotos.some((p) => p.id === photo.id)) {
+        return prevPhotos;
+      } else {
+        return [...prevPhotos, photo];
+      }
+    });
   };
 
   const removeFavouritePhoto = (photo: Photo) => {
@@ -33,8 +36,6 @@ const FavouriteProvider = ({ children }: PropsWithChildren) => {
       prevPhotos.filter((p) => p.id !== photo.id)
     );
   };
-
-  useRemoveLocalStorage<Photo[]>("favouritePhotos", favouritePhotos);
 
   return (
     <FavouriteContext.Provider
