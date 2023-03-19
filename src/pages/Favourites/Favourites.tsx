@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 
 import { FavouriteContext } from "../../contexts/FavouriteContext";
-import PhotoCard from "../../components/ImageCard/PhotoCard";
+import PhotoCard from "../../components/PhotoCard/PhotoCard";
 import styles from "./Favourites.module.scss";
 
 const Favourites = () => {

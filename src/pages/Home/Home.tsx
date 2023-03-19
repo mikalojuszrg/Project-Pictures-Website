@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { Photo } from "../../types/photo";
-import PhotoCard from "../../components/ImageCard/PhotoCard";
+import PhotoCard from "../../components/PhotoCard/PhotoCard";
 import { fetchData } from "../../api/images";
 import { filterArray } from "../../utils/filter";
 import styles from "./Home.module.scss";

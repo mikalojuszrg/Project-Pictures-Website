@@ -4,10 +4,8 @@ import Button from "../Button/Button";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
 import { Photo } from "../../types/photo";
 import styles from "./PhotoCard.module.scss";
-import { useNavigate } from "react-router-dom";
 
 const PhotoCard = (photo: Photo) => {
-  const navigate = useNavigate();
   const { addFavouritePhoto, removeFavouritePhoto, favouritePhotos } =
     useContext(FavouriteContext);
   const [isFavourite, setIsFavourite] = useState(
