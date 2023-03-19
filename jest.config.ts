@@ -1,12 +1,10 @@
-import type { Config } from "@jest/types";
-
-const config: Config.InitialOptions = {
+export default {
   preset: "ts-jest",
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
+  testMatch: ["**/tests/**/*.test.(ts|tsx)"],
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1",
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
-  testMatch: ["<rootDir>/src/tests/**/*.test.(ts|tsx)"],
+  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
 };
-
-export default config;
