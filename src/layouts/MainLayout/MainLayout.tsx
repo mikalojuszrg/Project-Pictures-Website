@@ -4,9 +4,9 @@ import styles from "./MainLayout.module.scss";
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div>
+    <div className={styles.container}>
       <Topbar />
-      <main className={styles.container}>{children}</main>
+      <main>{children}</main>
     </div>
   );
 };

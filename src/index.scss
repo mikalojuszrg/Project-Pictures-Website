@@ -5,6 +5,7 @@ body {
   overflow: hidden;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 p,
@@ -15,7 +16,7 @@ h2 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0.5rem;
   background-color: color.$base-color-primary;
 }
 

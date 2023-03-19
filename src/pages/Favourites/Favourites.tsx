@@ -7,7 +7,6 @@ const Favourites = () => {
   const { favouritePhotos } = useContext(FavouriteContext);
   return (
     <main>
-      <h1>Favourites</h1>
       <div className={styles.grid}>
         {favouritePhotos.map((photo) => (
           //   <img key={photo.id} src={photo.src.medium} alt={photo.photographer} />

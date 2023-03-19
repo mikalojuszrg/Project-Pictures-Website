@@ -1,0 +1,13 @@
+@use "../../sass/utils/colors.scss" as color;
+
+.container {
+  background-color: color.$base-color-primary;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0rem;
+
+  Button {
+    margin-right: 0.5rem;
+  }
+}
