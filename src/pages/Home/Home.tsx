@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-import Button from "../../components/Button/Button";
 import { Photo } from "../../types/photo";
 import PhotoCard from "../../components/ImageCard/PhotoCard";
 import { fetchData } from "../../api/images";
@@ -56,15 +55,14 @@ const Home = () => {
   }, [loading, containerRef, containerHeight]);
 
   return (
-    <main className={styles.container}>
-      <h1>Photos</h1>
-      <section className={styles.container__images} ref={containerRef}>
+    <section className={styles.container}>
+      <div className={styles.container__images} ref={containerRef}>
         {filteredPhotos.map((photo) => (
           <PhotoCard {...photo} key={photo.id} />
         ))}
         {loading && <div>Loading...</div>}
-      </section>
-    </main>
+      </div>
+    </section>
   );
 };
 
