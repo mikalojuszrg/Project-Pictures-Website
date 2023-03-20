@@ -1,20 +1,30 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { FavouriteContext } from "../../contexts/FavouriteContext";
-import { Photo } from "../../types/photo";
-import PhotoCard from "./PhotoCard";
+import { FavouriteContext } from "../contexts/FavouriteContext";
+import { Photo } from "../types/photo";
+import PhotoCard from "../components/PhotoCard/PhotoCard";
 
 describe("PhotoCard", () => {
   const mockPhoto: Photo = {
     id: 1,
     photographer: "John Doe",
-    src: { medium: "https://example.com/image.jpg" },
     url: "https://example.com/photo/1",
+    src: {
+      original: "https://example.com/image-original.jpg",
+      large2x: "https://example.com/image-large2x.jpg",
+      large: "https://example.com/image-large.jpg",
+      medium: "https://example.com/image-medium.jpg",
+      small: "https://example.com/image-small.jpg",
+      portrait: "https://example.com/image-portrait.jpg",
+      landscape: "https://example.com/image-landscape.jpg",
+      tiny: "https://example.com/image-tiny.jpg",
+    },
   };
+
   const mockFavouriteContext = {
     addFavouritePhoto: jest.fn(),
     removeFavouritePhoto: jest.fn(),
-    favouritePhotos: [],
+    favouritePhotos: [] as Photo[],
   };
 
   it("renders the photo and photographer name", () => {
