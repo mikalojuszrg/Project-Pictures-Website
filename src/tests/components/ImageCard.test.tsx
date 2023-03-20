@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { FavouriteContext } from "../contexts/FavouriteContext";
-import { Photo } from "../types/photo";
-import PhotoCard from "../components/PhotoCard/PhotoCard";
+import { FavouriteContext } from "../../contexts/FavouriteContext";
+import { Photo } from "../../types/photo";
+import PhotoCard from "../../components/PhotoCard/PhotoCard";
 
 describe("PhotoCard", () => {
   const mockPhoto: Photo = {

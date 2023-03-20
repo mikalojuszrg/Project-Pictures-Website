@@ -1,6 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 
-import Button from "../components/Button/Button";
+import Button from "../../components/Button/Button";
 import styles from "../components/Button/Button.module.scss";
 
 describe("Button", () => {
