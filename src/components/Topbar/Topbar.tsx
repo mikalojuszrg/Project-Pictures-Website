@@ -9,7 +9,7 @@ const Topbar = () => {
   const navigate = useNavigate();
 
   return (
-    <header className={styles.container}>
+    <header className={styles.container} data-testid="topbar">
       {location.pathname === HOME_PATH ? (
         <>
           <h1 className={styles.container__title}>Photos</h1>

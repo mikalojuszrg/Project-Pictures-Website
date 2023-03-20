@@ -27,7 +27,7 @@ describe("PhotoCard", () => {
     favouritePhotos: [] as Photo[],
   };
 
-  it("renders the photo and photographer name", () => {
+  test("renders the photo and photographer name", () => {
     render(
       <FavouriteContext.Provider value={mockFavouriteContext}>
         <PhotoCard {...mockPhoto} />
@@ -41,7 +41,7 @@ describe("PhotoCard", () => {
     expect(photographer).toBeInTheDocument();
   });
 
-  it("calls addFavouritePhoto when the 'Favourite' button is clicked", () => {
+  test("calls addFavouritePhoto when the 'Favourite' button is clicked", () => {
     render(
       <FavouriteContext.Provider value={mockFavouriteContext}>
         <PhotoCard {...mockPhoto} />
@@ -57,7 +57,7 @@ describe("PhotoCard", () => {
     );
   });
 
-  it("calls removeFavouritePhoto when the 'Unfavourite' button is clicked", () => {
+  test("calls removeFavouritePhoto when the 'Unfavourite' button is clicked", () => {
     mockFavouriteContext.favouritePhotos = [mockPhoto];
 
     render(
@@ -75,7 +75,7 @@ describe("PhotoCard", () => {
     );
   });
 
-  it("updates the 'isFavourite' state when favouritePhotos context changes", () => {
+  test("updates the 'isFavourite' state when favouritePhotos context changes", () => {
     const mockFavouritePhotos = [mockPhoto];
     mockFavouriteContext.favouritePhotos = mockFavouritePhotos;
 
