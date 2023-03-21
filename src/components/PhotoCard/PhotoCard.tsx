@@ -28,7 +28,7 @@ const PhotoCard = (photo: Photo) => {
     setIsFavourite((prevValue) => !prevValue);
   };
 
-  const imageSrc = isVisible ? photo.src.large : photo.src.medium;
+  const imageSrc = isVisible ? photo.src.large : photo.src.small;
 
   return (
     <div className={styles.container} ref={ref}>
