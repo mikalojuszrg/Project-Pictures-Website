@@ -42,6 +42,7 @@ const Favourites = () => {
         {favouritePhotos.map((photo) => (
           <PhotoCard {...photo} key={photo.id} />
         ))}
+        {loading && <div>Loading...</div>}
       </div>
     </section>
   );

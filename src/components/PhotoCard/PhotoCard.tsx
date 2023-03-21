@@ -1,9 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 
 import Button from "../Button/Button";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
 import { Photo } from "../../types/photo";
 import styles from "./PhotoCard.module.scss";
+import { useIntersectionObserver } from "../../hooks/intersectionObserver";
 
 const PhotoCard = (photo: Photo) => {
   const { addFavouritePhoto, removeFavouritePhoto, favouritePhotos } =
@@ -11,6 +12,8 @@ const PhotoCard = (photo: Photo) => {
   const [isFavourite, setIsFavourite] = useState(
     favouritePhotos.some((p) => p.id === photo.id)
   );
+  const ref = useRef<HTMLDivElement>(null);
+  const isVisible = useIntersectionObserver(ref);
 
   useEffect(() => {
     setIsFavourite(favouritePhotos.some((p) => p.id === photo.id));
@@ -25,16 +28,18 @@ const PhotoCard = (photo: Photo) => {
     setIsFavourite((prevValue) => !prevValue);
   };
 
+  const imageSrc = isVisible ? photo.src.large : photo.src.medium;
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <img
-        src={photo.src.large}
+        src={imageSrc}
         alt={photo.photographer}
         className={styles.container__image}
-        loading="lazy"
         onClick={() => {
           window.location.href = photo.url;
         }}
+        loading="lazy"
       />
       {/* Pexels don't provide pic titles, so added a placeholder below */}
       <h2 className={styles.container__title}>Title</h2>

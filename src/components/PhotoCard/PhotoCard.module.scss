@@ -2,7 +2,7 @@
 @import "../../sass/mixins/mediaQueries.scss";
 
 .container {
-  height: 45vh;
+  height: 15rem;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -11,19 +11,23 @@
   cursor: pointer;
 
   @include xsmall {
-    height: 35vh;
+    height: 10rem;
   }
 
   @include medium {
-    height: 40vh;
+    height: 10rem;
   }
 
   @include large {
-    height: 35vh;
+    height: 13rem;
   }
 
   @include xlarge {
-    height: 30vh;
+    height: 17rem;
+  }
+
+  @include xxlarge {
+    height: 30rem;
   }
 
   &__image {

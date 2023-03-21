@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes as RoutesWrapper } from "react-router-dom";
+import { Route, Routes as RoutesWrapper } from "react-router-dom";
 
 import { mainLayoutRoutes } from "./const";
 

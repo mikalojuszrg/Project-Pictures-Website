@@ -29,8 +29,6 @@ const Home = () => {
 
   const filteredPhotos = filterArray(photos);
 
-  console.log(photos);
-
   useEffect(() => {
     const container = containerRef.current;
     if (container) {

@@ -20,5 +20,9 @@
     @include xlarge {
       grid-template-columns: repeat(4, 1fr);
     }
+
+    @include xxlarge {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
