@@ -12,7 +12,7 @@ To start the project, run the command yarn dev.
 
 # What I would improve
 
--Image display: Fetched images are different (mostly vertical and horizontal), so compromises had to be made to balance between the need for pixel-perfect design and finding a solution for displaying images accurately despite them being in different ratios. There's still room for improvement, though.
+-Image display: Fetched images are different ((mostly) vertical and horizontal), so compromises had to be made to balance between the need for pixel-perfect design and finding a solution for displaying images accurately despite them being in different ratios. There's still room for improvement, though.
 
 -Testing: More extended unit testing is needed for components and pages.
 
