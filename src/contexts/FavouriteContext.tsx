@@ -1,7 +1,7 @@
 import { PropsWithChildren, createContext } from "react";
 
 import { Photo } from "../types/photo";
-import { useLocalStorage } from "../hooks/localStorage";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 type FavouriteContextType = {
   favouritePhotos: Photo[];

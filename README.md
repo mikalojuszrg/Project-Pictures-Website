@@ -14,4 +14,4 @@
 
 -Accessibility (still plenty to do, such as tabbing throughout all photos)
 
--Performance (according to Google's Lighthouse, the mobile performance for this website is quite poor compared to the desktop version. Adjustmetns can be done concercing the amount of images fetched for the mobile, also the quality of the images)
+-Performance (according to Google's Lighthouse, the mobile performance of this website is quite poor compared to the desktop version. Adjustments can be done concerning the number of images fetched for the mobile, also the quality of the images)

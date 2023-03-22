@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { FavouriteContext } from "../../contexts/FavouriteContext";
 import { Photo } from "../../types/photo";
 import styles from "./PhotoCard.module.scss";
-import { useIntersectionObserver } from "../../hooks/intersectionObserver";
+import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 const PhotoCard = (photo: Photo) => {
   const { addFavouritePhoto, removeFavouritePhoto, favouritePhotos } =
