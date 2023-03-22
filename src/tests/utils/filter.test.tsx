@@ -5,7 +5,7 @@ describe("filterArray function", () => {
   const inputArray: Photo[] = [
     {
       id: 1,
-      photographer: "John",
+      photographer: "Name",
       url: "http://example.com/1.jpg",
       src: {
         original: "",
@@ -18,16 +18,15 @@ describe("filterArray function", () => {
         tiny: "",
       },
     },
-    // more Photo objects...
   ];
 
-  it("returns an empty array when passed an empty array", () => {
+  test("returns an empty array when passed an empty array", () => {
     const inputArray: Photo[] = [];
     const expectedOutput: Photo[] = [];
     expect(filterArray(inputArray)).toEqual(expectedOutput);
   });
 
-  it("returns the same array when all items have unique IDs", () => {
+  test("returns the same array when all items have unique IDs", () => {
     const inputArray: Photo[] = [
       {
         id: 1,

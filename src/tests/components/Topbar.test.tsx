@@ -13,7 +13,7 @@ describe("Topbar", () => {
     );
 
     const titleElements = screen.getAllByText(/photos/i);
-    const titleElement = titleElements[0]; // get the first matching element
+    const titleElement = titleElements[0];
     const buttonElement = screen.getByRole("button", {
       name: /favourite photos/i,
     });
@@ -30,7 +30,7 @@ describe("Topbar", () => {
     );
 
     const titleElements = screen.getAllByText(/favourites/i);
-    const titleElement = titleElements[0]; // get the first matching element
+    const titleElement = titleElements[0];
     const buttonElement = screen.getByRole("button", { name: /all photos/i });
 
     expect(titleElement).toBeInTheDocument();
