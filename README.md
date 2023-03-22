@@ -1,17 +1,19 @@
+# Getting Started
+
+To start the project, run the command yarn dev.
+
 # Technologies used
 
 -React
-
 -TypeScript
-
 -SCSS modules(BEM)
 
 # What I would improve
 
--Image display (fetched images are different (vertical (most of them) and horizontal), so I had to make compromises to balance between the need for pixel-perfect design and finding a solution for displaying images accurately despite them being in different ratios. There's still room for improvement, though)
+-Image display: Fetched images are different (mostly vertical and horizontal), so compromises had to be made to balance between the need for pixel-perfect design and finding a solution for displaying images accurately despite them being in different ratios. There's still room for improvement, though.
 
--Testing (more extended unit testing needed for components and pages)
+-Testing: More extended unit testing is needed for components and pages.
 
--Accessibility (still plenty to do, such as tabbing throughout all photos)
+-Accessibility: There is still plenty to do, such as tabbing throughout all photos.
 
--Performance (according to Google's Lighthouse, the mobile performance of this website is quite poor compared to the desktop version. Adjustments can be done concerning the number of images fetched for the mobile, also the quality of the images)
+-Performance: According to Google's Lighthouse, the mobile performance of this website is quite poor compared to the desktop version. Adjustments can be made concerning the number and quality of images fetched for the mobile version.
