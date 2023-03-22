@@ -5,7 +5,9 @@ To start the project, run the command yarn dev.
 # Technologies used
 
 -React
+
 -TypeScript
+
 -SCSS modules(BEM)
 
 # What I would improve
